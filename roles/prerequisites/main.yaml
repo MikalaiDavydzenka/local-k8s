@@ -1,0 +1,8 @@
+- name: get kubectl
+  var:
+    version: v1.20.1
+  get_url:
+    url: https://storage.googleapis.com/kubernetes-release/release/{{ version }}/bin/linux/amd64/kubectl
+    dest: /usr/local/bin/kubectl
+    mode: "0755"
+

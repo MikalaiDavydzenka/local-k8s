@@ -1,0 +1,9 @@
+- name: generate docker-compose.yaml
+  template:
+      dest: "{{ playbook_dir }}/docker-compose.yaml"
+      src: docker-compose.yaml
+
+- name: docker-compose up
+  community.general.docker_compose:
+    project_src: "{{ playbook_dir }}"
+    state: present
