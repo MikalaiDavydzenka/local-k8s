@@ -1,4 +1,3 @@
 docker-compose
-ansible
 openshift
 docker
