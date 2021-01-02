@@ -3,7 +3,12 @@ services:
 
   k3s-master:
     image: "rancher/k3s:{{ k3s_version }}"
-    command: server
+    hostname: k3s-master
+    command: >-
+      server
+      --disable servicelb
+      --disable traefik
+    #--disable local-storage
     tmpfs:
     - /run
     - /var/run
@@ -20,6 +25,8 @@ services:
     - 6443:6443
 
   k3s-worker:
+    deploy:
+      replicas: 0
     image: "rancher/k3s:{{ k3s_version }}"
     tmpfs:
     - /run

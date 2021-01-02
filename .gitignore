@@ -1,1 +1,3 @@
 .venv
+kubeconfig.yaml
+docker-compose.yaml
